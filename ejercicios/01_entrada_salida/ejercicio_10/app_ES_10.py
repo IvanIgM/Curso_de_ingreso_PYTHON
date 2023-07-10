@@ -42,6 +42,20 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
+
+        sueldo = self.txt_importe.get()
+        descuento = self.txt_descuento.get()
+
+        sueldo_int = int(sueldo)
+        descuento_int = int(descuento)
+
+        descuento = sueldo_int * descuento_int / 100
+
+        sueldoActualizado = sueldo_int - descuento
+
+        sueldoActualizado_str = str(sueldoActualizado)
+
+        alert("Alerta", "Sueldo actualizado: " + sueldoActualizado_str)
         pass
 
 
