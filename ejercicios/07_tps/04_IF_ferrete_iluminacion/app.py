@@ -5,6 +5,11 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+nombre: Ivan
+apellido: Marrero
+---
+Ejercicio: A-B-C-D
+---
 Todas las lámparas están  al mismo precio de $800 pesos final.
 		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
 		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
@@ -38,6 +43,77 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
+
+        cantidad = self.combobox_cantidad.get()
+        marca = self.combobox_marca.get()
+
+        cantidad_int = int(cantidad)
+
+        porcentaje = 1
+        precio = cantidad_int * 800
+        precio_str = str(precio)
+
+        if cantidad_int >= 3:
+            if cantidad_int >= 6:
+
+                porcentaje = 0.5
+
+            elif cantidad_int == 5:
+                if marca == "ArgentinaLuz":
+
+                    porcentaje = 0.4
+
+                else:
+
+                    porcentaje = 0.3
+
+            elif cantidad_int == 4:
+                if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+
+                    porcentaje = 0.25
+
+                else:
+
+                    porcentaje = 0.20
+
+
+            elif cantidad_int == 3:
+                if marca == "ArgentinaLuz":
+
+                    porcentaje = 0.15
+                
+                elif marca == "FelipeLamparas":
+
+                    porcentaje = 0.10        
+
+                else:
+
+                    porcentaje = 0.05
+
+            
+            descuento = precio * porcentaje
+            precioFinal = precio - descuento
+            precioFinal_str = str(precioFinal)
+
+            if precioFinal > 4000:
+
+                descuentoPuntoE = precioFinal * 0.05
+                importeFinal = precioFinal - descuentoPuntoE
+                importeFinal_str = str(importeFinal)
+
+                alert("Precio descontado", "Precio final: $" + importeFinal_str)
+            
+            else:
+
+                alert("Precio descontado", "Precio final: $" + precioFinal_str)
+            
+
+        else:
+
+            alert("Precio normal", "Precio final: $" + precio_str)
+
+            
+
         pass
         
     
