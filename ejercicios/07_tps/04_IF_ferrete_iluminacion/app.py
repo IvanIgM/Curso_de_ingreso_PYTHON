@@ -8,7 +8,7 @@ import customtkinter
 nombre: Ivan
 apellido: Marrero
 ---
-Ejercicio: A-B-C-D
+Ejercicio: A-B-C-D-E
 ---
 Todas las lámparas están  al mismo precio de $800 pesos final.
 		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
