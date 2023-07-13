@@ -53,68 +53,65 @@ class App(customtkinter.CTk):
         precio = cantidad_int * 800
         precio_str = str(precio)
 
-        if cantidad_int >= 3:
-            if cantidad_int >= 6:
+        if cantidad_int >= 6:
 
-                porcentaje = 0.5
+            porcentaje = 0.5
 
-            elif cantidad_int == 5:
-                if marca == "ArgentinaLuz":
+        elif cantidad_int == 5:
+            if marca == "ArgentinaLuz":
 
                     porcentaje = 0.4
 
-                else:
+            else:
 
                     porcentaje = 0.3
 
-            elif cantidad_int == 4:
-                if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+        elif cantidad_int == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
 
                     porcentaje = 0.25
 
-                else:
+            else:
 
                     porcentaje = 0.20
 
 
-            elif cantidad_int == 3:
-                if marca == "ArgentinaLuz":
+        elif cantidad_int == 3:
+            if marca == "ArgentinaLuz":
 
                     porcentaje = 0.15
                 
-                elif marca == "FelipeLamparas":
+            elif marca == "FelipeLamparas":
 
                     porcentaje = 0.10        
 
-                else:
+            else:
 
                     porcentaje = 0.05
 
             
-            descuento = precio * porcentaje
-            precioFinal = precio - descuento
-            precioFinal_str = str(precioFinal)
+        descuento = precio * porcentaje
+        precioFinal = precio - descuento
+        precioFinal_str = str(precioFinal)
 
-            if precioFinal > 4000:
+        if precioFinal > 4000:
 
-                descuentoPuntoE = precioFinal * 0.05
-                importeFinal = precioFinal - descuentoPuntoE
-                importeFinal_str = str(importeFinal)
+            descuentoPuntoE = precioFinal * 0.05
+            importeFinal = precioFinal - descuentoPuntoE
+            importeFinal_str = str(importeFinal)
 
-                alert("Precio descontado", "Precio final: $" + importeFinal_str)
+            alert("Precio descontado", "Precio final: $" + importeFinal_str)
+
+        elif porcentaje == 1:
+              
+              alert("Precio normal", "Precio final: $" + precio_str)
             
-            else:
-
-                alert("Precio descontado", "Precio final: $" + precioFinal_str)
-            
-
         else:
 
-            alert("Precio normal", "Precio final: $" + precio_str)
-
+            alert("Precio descontado", "Precio final: $" + precioFinal_str)
             
-
-        pass
+            
+pass
         
     
 if __name__ == "__main__":
