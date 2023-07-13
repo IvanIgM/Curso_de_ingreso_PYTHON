@@ -1,4 +1,4 @@
-import tkinter
+ import tkinter
 from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
@@ -29,6 +29,17 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
+        destino = self.combobox_destino.get()
+
+        match destino:
+           case "Ushuaia":
+              alert("Punto cardinal", "Esta en el Sur")
+           case "Cataratas":
+              alert("Punto cardinal", "Esta en el Norte")
+           case "Bariloche":
+              alert("Punto cardinal", "Esta en el Oeste")
+           case "Mar del plata":
+              alert("Punto cardinal", "Esta en el Este")
         pass
     
     
