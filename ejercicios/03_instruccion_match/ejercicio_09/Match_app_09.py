@@ -6,6 +6,9 @@ import customtkinter
 
 
 '''
+nombre: Ivan
+apellido: Marrero
+---
 Una agencia de viajes cobra $15.000 por cada estadía como base. 
 Luego para calcular las tarifas total realiza el siguiente cálculo, 
 en función de la estación del año y del destino elegido:
@@ -52,6 +55,69 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
+
+        estadia = 15000
+        porcentajeAumento = 1
+        porcentajeDescuento = 1
+
+        estacion = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+
+        match estacion:
+            case "Invierno":
+                match destino:
+                    case "Bariloche":
+
+                        porcentajeAumento = 20
+
+                    case "Cataratas" | "Cordoba":
+
+                        porcentajeDescuento = 0.1
+
+                    case "Mar del plata":
+
+                        porcentajeDescuento = 0.2
+
+            case "Verano":
+                match destino:
+                    case "Bariloche":
+
+                        porcentajeDescuento = 0.2
+
+                    case "Cataratas" | "Cordoba":
+
+                        porcentajeAumento = 10
+
+                    case "Mar del plata":
+
+                        porcentajeAumento = 20
+
+            case "Primavera" | "Otoño":
+                match destino:
+                    case "Bariloche" | "Cataratas" | "Mar del plata":
+
+                        porcentajeAumento = 10
+                        
+                    
+        match porcentajeAumento:
+            case 1:
+                match porcentajeDescuento:
+                    case 1:
+
+                        alert("Precio final", "Precio final $" + str(estadia))
+
+                    case _:
+
+                        descuento = estadia * porcentajeDescuento
+                        estadiaFinal = estadia - descuento 
+                        alert("Precio descontado", "Precio descontado $" + str(estadiaFinal)) 
+            
+            case _:
+
+                aumento = estadia * porcentajeAumento / 100
+                estadiaFinal = estadia + aumento 
+                alert("Precio aumentado", "Precio aumentado $" + str(estadiaFinal))
+
         pass
             
     

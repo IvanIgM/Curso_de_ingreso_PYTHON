@@ -25,6 +25,15 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_letra_on_click(self):
+
+        while True:
+
+            ingreso = prompt("Titulo", "Ingrese una letra (U, T o N)")
+
+            if ingreso == "U" or ingreso == "T" or ingreso == "N":
+                break
+
+
         pass
             
     

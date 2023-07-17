@@ -24,6 +24,25 @@ class App(customtkinter.CTk):
         
     
     def btn_pedir_clave_on_click(self):
+
+        '''
+        Manera sin while True
+
+        usuario = prompt("Usuario", "Ingrese el usuario")
+
+        while usuario != "utn750":
+            usuario = prompt("Usuario", "Ingrese el usuario")
+            
+        '''
+
+        while True:
+
+            ingreso = prompt("Titulo", "Ingrese su contraseña")
+
+            if ingreso == "utn750":
+                break
+
+
         pass
     
     
