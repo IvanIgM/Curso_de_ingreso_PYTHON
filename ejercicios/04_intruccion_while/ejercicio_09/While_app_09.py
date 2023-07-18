@@ -53,11 +53,13 @@ class App(customtkinter.CTk):
                 numeroMinimo = ingreso
                 bandera = False
 
+           
             if ingreso >= numeroMaximo:
 
                 numeroMaximo = ingreso
             
             else:
+
                 numeroMinimo = ingreso
 
             ingreso_str = prompt("Ingreso", "Ingrese un numero")
