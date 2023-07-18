@@ -32,6 +32,30 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
+
+        acumuladorPositivo = 0
+        acumuladorNegativo = 1
+
+        ingreso_str = prompt("Ingreso", "Ingrese un numero positivo o negativo")
+
+        while ingreso_str != "0" and ingreso_str != None:
+            ingreso = int(ingreso_str)
+
+            if ingreso > 0:
+
+                acumuladorPositivo += ingreso
+
+            else:
+                acumuladorNegativo *= ingreso
+
+            ingreso_str = prompt("Ingreso", "Ingrese un numero positivo o negativo")
+
+    
+        self.txt_suma_acumulada.delete(0,100)
+        self.txt_suma_acumulada.insert(0, acumuladorPositivo)
+
+        self.txt_producto.delete(0,100)
+        self.txt_producto.insert(0, acumuladorNegativo) 
         pass
 
     
