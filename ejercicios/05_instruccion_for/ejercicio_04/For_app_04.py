@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Ivan Marrero
+
 Al presionar el botón Mostrar pedir valores por prompt hasta que el usuario ingrese el valor 9 (se deberá utilizar 'BREAK').
 '''
 
@@ -21,6 +23,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
+
+        for i in range (0, 99999, 1):
+            valores = prompt("Valor", "Ingrese un valor: ")
+
+            if valores == "9":
+                break
         pass
         
     

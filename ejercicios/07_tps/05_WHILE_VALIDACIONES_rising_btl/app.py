@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Ivan Marrero
+
 Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada 
 por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
 
@@ -50,6 +52,42 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
+
+        pregunta = prompt("Inicio", "¿Desea empezar? (s/n): ")
+
+        while pregunta == "s":
+
+            apellido = prompt("Apellido", "Ingrese su apellido: ")
+            edad_str = prompt("Edad", "Ingrese su edad: ")
+            estadoCivil = prompt("Estado Civil", "Ingrese su estado civil: ")
+            legajo_str = prompt("Legajo", "Número de legajo, numérico de 4 cifras, sin ceros a la izquierda: ")
+
+            legajo = int(legajo_str)
+            edad = int(edad_str)
+            
+            if edad < 18 or edad > 90:
+                alert("Error", "Edad invalida")
+                break
+
+            if legajo > 9999 or legajo < 1000:
+                alert("Error", "Legajo invalido")
+                break
+            
+
+
+            self.txt_apellido.delete(0, 100)
+            self.txt_apellido.insert(0, apellido)
+
+            self.txt_edad.delete(0, 100)
+            self.txt_edad.insert(0, edad_str)
+
+            self.txt_legajo.delete(0, 100)
+            self.txt_legajo.insert(0, legajo_str)
+
+            self.combobox_tipo.set(estadoCivil)
+
+            pregunta = prompt("Pregunta", "¿Desea continuar? (s/n): ")
+
         pass
 
 

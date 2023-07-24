@@ -67,10 +67,10 @@ class App(customtkinter.CTk):
             
 
         self.txt_maximo.delete(0, 100)
-        self.txt_maximo.insert(0, numeroMaximo)
+        self.txt_maximo.insert(0, "Maximo: " + str(numeroMaximo))
 
         self.txt_minimo.delete(0, 100)
-        self.txt_minimo.insert(0, numeroMinimo)
+        self.txt_minimo.insert(0, "Minimo: " + str(numeroMinimo))
 
         pass
 

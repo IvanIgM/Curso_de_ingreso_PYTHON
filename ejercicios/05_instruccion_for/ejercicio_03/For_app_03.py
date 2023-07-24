@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Ivan Marrero
+
 Enunciado:
 Al presionar el botón Mostrar tomar del campo de texto cantidad de veces que se desea
 repetir el mensaje "Hola UTN FRA" (utilizando el Dialog Alert)
@@ -29,6 +31,13 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
+
+        ciclo_get = self.txt_repetir.get()
+
+        ciclo = int(ciclo_get)
+
+        for i in range(0, ciclo, 1):
+            alert("Hola", "Hola UTN FRA")
         pass
 
         
