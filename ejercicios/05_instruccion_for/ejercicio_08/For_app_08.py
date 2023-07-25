@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Ivan Marrero
+
 Al presionar el botón Mostrar pedir un número. Informar si el número es PRIMO o no.
 '''
 
@@ -21,6 +23,21 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
+
+        numero_str = prompt("Titulo","Ingrese un numero: ")
+
+        numero = int(numero_str)
+
+
+        for i in range (2, numero, 1):
+
+            divisible = numero % i
+        
+            if divisible == 0:
+                print("No es primo", i, "es divisor")
+                
+        print("Es primo")
+
         pass
     
 if __name__ == "__main__":

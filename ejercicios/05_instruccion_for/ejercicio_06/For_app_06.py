@@ -31,9 +31,9 @@ class App(customtkinter.CTk):
 
         contador = 0
 
-        for i in range(0, numeroPar, 2):
+        for i in range(1, numeroPar+1, 2):
 
-            alert("Pares", i)
+            alert("Pares", i+1)
 
             contador += 1
 
