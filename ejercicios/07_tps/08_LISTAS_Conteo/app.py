@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Ivan Marrero
+
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el
 usuario quiera hasta que presione el botón Cancelar (en el prompt). 
@@ -44,9 +46,69 @@ class App(customtkinter.CTk):
         self.lista = []
 
     def btn_comenzar_ingreso_on_click(self):
+
+        self.lista.clear()
+        
+        numeros_str = prompt("Numeros", "Ingrese un numero (cancel para parar)")
+
+        while numeros_str != None:
+
+            numeros = int(numeros_str)
+
+            self.lista.append(numeros)
+            numeros_str = prompt("Numeros", "Ingrese otro numero")
+                 
         pass
 
     def btn_mostrar_estadisticas_on_click(self):
+
+        minimoNegativo = self.lista[0] #Hacer bandera, minimo y maximo no funcionan
+        maximoPositivo = self.lista[0]
+
+        contadorPositivo = 0
+        contadorNegativo = 0
+        contadorCero = 0
+        acumuladorPositivo = 0
+        acumuladorNegativo = 0
+
+        for numeros in self.lista:
+
+            if numeros > 0:
+                acumuladorPositivo += numeros
+                contadorPositivo += 1
+                
+                if numeros > maximoPositivo:
+                    maximoPositivo = numeros
+
+            elif numeros == 0:
+                contadorCero += 1
+
+            else:
+                acumuladorNegativo += numeros
+                contadorNegativo += 1
+
+                if numeros < minimoNegativo:
+                    minimoNegativo = numeros
+
+
+        if acumuladorNegativo != 0 and contadorNegativo != 0:
+            promedioNegativo = acumuladorNegativo / contadorNegativo
+            alert("Promedio negativo", "Promedio negativo: " + str(promedioNegativo))
+
+        alert("Positivos", "Suma acumulada de los positivos: " + str(acumuladorPositivo))
+        alert("Negativos", "Suma acumulada de los negativos: " + str(acumuladorNegativo))
+
+        alert("Cantidad positivos", "Cantidad de numeros positivos: " + str(contadorPositivo))
+        alert("Cantidad negativos", "Cantidad de numeros negativos: " + str(contadorNegativo))
+
+        alert("Cantidad ceros", "Cantidad de ceros: " + str(contadorCero))
+
+        alert("Minimo negativo", "El minimo de los negativos: " + str(minimoNegativo))
+        alert("Maximo positivo", "El maximo de los positivos: " + str(maximoPositivo))
+
+        
+
+
         pass
 
 
