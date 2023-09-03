@@ -69,24 +69,25 @@ class App(customtkinter.CTk):
         self.lista_tipo_vehiculo = []
         self.lista_marca_vehiculo = []
 
-    '''A)  Al presionar el botón 'Agregar' se deberan cargar tantos vehiculos como el usuario desee. 
-        Los datos a cargar de cada vehiculo son: tipo de vehiculo (auto, camioneta, moto) y kilometros*.
 
-    * Todos los autos son usados.
-
-    -- SOLO SE CARGARAN LOS VALORES SI Y SOLO SI SON CORRECTOS --'''
     def btn_agregar_on_click(self):
 
-        tipo = prompt("Tipo", "Tipo de vehiculo (auto, camioneta, moto)")
-        while tipo == None or tipo != "auto" and tipo != "camioneta" and tipo != "moto":
-            tipo = prompt("Error", "Ingrese correctamente el tipo de vehiculo (auto, camioneta, moto)")
+        pregunta = True
 
-        kilometros = prompt("KM", "Kilometros del vehiculo")
-        while int(kilometros) <= 0:
-            kilometros = prompt("KM", "El vehiculo debe ser usado (km > 0)")
-            
-        self.lista_tipo_vehiculo.append(tipo)
-        self.lista_marca_vehiculo.append(kilometros)
+        while pregunta:
+
+            tipo = prompt("Tipo", "Tipo de vehiculo (auto, camioneta, moto)")
+            while tipo == None or tipo != "auto" and tipo != "camioneta" and tipo != "moto":
+                tipo = prompt("Error", "Ingrese correctamente el tipo de vehiculo (auto, camioneta, moto)")
+
+            kilometros = prompt("KM", "Kilometros del vehiculo")
+            while int(kilometros) <= 0:
+                kilometros = prompt("KM", "El vehiculo debe ser usado (km > 0)")
+                
+            self.lista_tipo_vehiculo.append(tipo)
+            self.lista_marca_vehiculo.append(kilometros)
+
+            pregunta = question("Pregunta", "¿Desea continuar?")
 
         pass        
 
@@ -128,7 +129,7 @@ class App(customtkinter.CTk):
                
            contador += 1
         
-        
+       print("El menor kilometraje y su tipo de vehiculo:") 
        print(str(menorKm) + "km | Tipo: " + menorTipo)
                
                
